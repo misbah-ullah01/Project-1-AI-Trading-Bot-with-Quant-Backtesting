@@ -12,3 +12,14 @@ data = yf.download(ticker, period="30d")
 
 st.write("Last 5 rows of data:")
 st.dataframe(data.tail())
+
+#Simple plot
+fig, ax = plt.subplots()
+ax.plot(data.index, data['Close'])
+ax.set_title(f"{ticker} Closing Price - Last 30 Days")
+ax.set_xlabel("Date")
+ax.set_ylabel("Price (USD)")
+fig.autofmt_xdate()
+st.pyplot(fig)
+
+st.write("✅ First day target achieved")
